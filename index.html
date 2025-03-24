@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/bootstrapv3.3.7.min.css"> 
+   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet"> 
+   
+
+   <style type="text/css">
+   		 
+
+.nav-pills > li > a {
+   border-radius: 0;
+   font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+letter-spacing: 0.15px;
+}
+
+#mainwrapper {
+   padding-left: 0;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
+   transition: all 0.5s ease;
+   overflow: hidden;
+}
+
+#mainwrapper.toggled {
+   padding-left: 250px;
+   overflow: hidden;
+}
+
+#sidebar-wrapper {
+   z-index: 1000;
+   position: absolute;
+   left: 250px;
+   width: 0;
+   height: 100%;
+   margin-left: -250px;
+   overflow-y: auto;
+   background: #fff;
+   border-right: solid 1px #ddd;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
+   transition: all 0.5s ease;
+   overflow: hidden;
+}
+
+#mainwrapper.toggled #sidebar-wrapper {
+   width: 250px;
+}
+
+#page-content-wrapper {
+   position: absolute;
+   padding: 15px;
+   width: 100%;
+   overflow-x: hidden;
+}
+
+.xyz {
+   min-width: 360px;
+}
+
+#mainwrapper.toggled #page-content-wrapper {
+   position: relative;
+   margin-right: 0px;
+}
+
+.fixed-brand {
+   width: auto;
+}
+/* Sidebar Styles */
+
+.sidebar-nav {
+   position: absolute;
+   top: 0;
+   width: 250px;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   margin-top: 2px;
+}
+.nav-bottom {
+   bottom: 0;
+   top: auto;
+}
+.sidebar-nav li {
+   text-indent: 21px;
+   line-height: 40px;
+}
+.sidebar-nav li .nav-icon img {
+   width: 21px;
+}
+.sidebar-nav li a {
+   display: block;
+   text-decoration: none;
+   color: #333;
+   padding: 8px 0;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .sidebar-nav li a:hover {
+   text-decoration: none;
+   color: #333;
+   /*background: rgba(255, 255, 255, 0.2);*/
+   background: #EEF7FE;
+   /*border-left: red 2px solid;*/
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+   text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+   height: 65px;
+   font-size: 18px;
+   line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a
+   color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+   color: #fff;
+   background: none;
+}
+
+.no-margin {
+   margin: 0;
+}
+.fa-stack {
+    width: 2.65em;
+}
+
+.sidebar-nav .dropdownnav_wrap .dropdown-menu {
+    margin-left: 250px;
+    width: 250px;
+    margin-top: -175px;
+    /* padding-left: 15px !important; */
+    /* float: left; */
+}
+.sidebar-nav .dropdownnav_wrap li {
+    display: block;
+    float: left;
+    width: 100%;
+    text-indent: initial;
+    /* padding-left: 20px; */
+}
+.sidebar-nav .dropdownnav_wrap ul.dropdown-menu li a {
+    padding: 5px 20px;
+    margin: 0;
+    width: 100%;
+    /* padding-left: 15px; */
+}
+
+@media (min-width: 768px) {
+   #mainwrapper {
+      padding-left: 250px;
+   }
+   .fixed-brand {
+      width: 250px;
+   }
+   #mainwrapper.toggled {
+      padding-left: 0;
+   }
+   #sidebar-wrapper {
+      width: 250px;
+   }
+   #mainwrapper.toggled #sidebar-wrapper {
+      width: 250px;
+   }
+   #mainwrapper.toggled-2 #sidebar-wrapper {
+      width: 65px;
+   }
+   #mainwrapper.toggled-2 #sidebar-wrapper:hover {
+      width: 250px;
+   }
+   #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+   }
+   #mainwrapper.toggled #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+      padding-left: 250px;
+   }
+   #mainwrapper.toggled-2 #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+      margin-left: -200px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      width: auto;
+   }
+}
+
+
+   </style>
+</head>
+
+<body>
+  
+   <div id="mainwrapper" class="toggled-2">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <li style="margin: 10px 0 20px 0;background: #fff;">
+               <a href="#">
+                  <span>
+                     <img src="./img/logo_icon.png" title="Wellzio" class="logoicon" style="width: 32px;height:28px;left: -5px;position: relative;"/>
+                     <img src="./img/Logo_new.png" title="Wellzio" class="logoimg" style="width: 130px;height:28px; left: -5px;position: relative;display: none;"/>
+                  </span>
+               </a>               
+            </li>
+            <li class="active">
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/shape1.png" /></span> Home</a>               
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/schedule1.png" style="width: 20px;margin-right: 1px;" /></span>Schedule</a>
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/patient1.png" /></span>Patients</a>
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/billing1.png" /></span>Billing</a>
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/reports1.png" /></span>Reports</a>
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/econsult1.png" /></span>eConsult</a>
+            </li>
+          
+         </ul>
+         <ul class="sidebar-nav nav-bottom nav-pills nav-stacked" id="menu">
+           
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/settings1.png" /></span>Settings</a>
+            </li>
+            <li>
+               <a href="#"><span class="nav-icon pull-left"><img src="./img/alerts1.png" style="width: 18px; margin-left: 3px" /></span>Help</a>
+            </li>
+            <li class="dropdown dropdownnav_wrap">
+               <a class="open_profile dropdown-toggle" data-toggle="dropdown"><span title="" class="nav-icon pull-left"><img src="./img/MenuFilled.png" /></span><span class="nme login_usr_name" title="">Pushpalatha</span></a>
+                <ul class="dropdown-menu">
+                  <li><a title=""><span class="">Pushpalatha Gowda</span></a></li>
+                  <li><a title=""><span class="">wzd11@wellzio.com</span></a></li>
+                   <li style="border-bottom: solid 1px #ddd;"><a class="set_nav" title="Profile" href="" style="padding:10px 0;"><span class=""><img src="./img/user-settings.png" style="margin-left:18px;"/></span><span class="" style="margin-left:17px;">Profile</span></a></a></li>  
+                   <li><a title="Logout" href="SignedOut.action"><span class="" style="padding-right:16px; margin-left:-4px;"><img src="./img/LogoutFilled.png" /></span><span class="">Logout</span></a></li>
+                </ul>
+            </li>
+
+           <!--  <li class="dropdown dropdownnav_wrap">
+          <a class="open_profile dropdown-toggle" data-toggle="dropdown"><span title="Profile" class="sub_icon" style="padding-right:19px"><img src="/cascade/pages/images/img/MenuFilled.png" style="width: 25px;margin-left: -3px;border-radius: 16px;/* height: 32px; *//* border: solid 1px #ddd; */" /></span><span class="nme login_usr_name" title="<s:property value="physicianLogin.wapStaffName"/>"><s:property value="physicianLogin.wapStaffName"/></span></a>
+            
+            <ul class="dropdown-menu">
+             <li><a title="<s:property value="physicianLogin.wapStaffName"/>"><span class=""><s:property value="physicianLogin.wapStaffName"/></span></a></li>
+                <li style="border-bottom: solid 1px #ddd; padding-bottom:5px;"><a style="font-size:12px;"><span class="" style="font-size:12px;padding-top: 0;">wzd11@wellzio.com</span></a></li>
+                <li style="border-bottom: solid 1px #ddd;"><a class="set_nav" title="Profile" href="/cascade/physician/editPhysicianProfileHomePage.action?navTabId=7&en_activeWapId=<s:property value="en_activeWapId"/>" style="padding:10px 0;"><span class=""><img src="/cascade/pages/images/img/user-settings.png" style="margin-left:-2px;"/></span><span class="" style="margin-left:17px;">Profile</span></a></a></li>     
+             <li><a title="Logout" href="SignedOut.action"><span class="" style="padding-right:16px; margin-left:-4px;"><img src="/cascade/pages/images/img/LogoutFilled.png" /></span><span class="">Logout</span></a></li>
+         </ul>
+         </li> -->
+
+
+         </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+         <div class="container-fluid xyz">
+            <div class="row">
+               <div class="col-lg-12">
+                  <h1>Empower Patients to Manage their Care with Online Tools</h1>
+                  <p>Wellzio is a powerful, yet easy-to-use set of tools and online resources to enhance patient care while reducing workflow to be efficient and profitable. Maintain personal health records Consult online with physicians Set goals and track progress Get mobile alerts and reminders </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+   </div>
+   <!-- /#mainwrapper -->
+   <!-- jQuery -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrapv3.3.7.min.js"></script>
+
+
+   <script type="text/javascript">
+   	
+   	$(document).ready(function(){
+
+
+$("#menu-toggle").click(function(e) {
+   e.preventDefault();
+   $("#wellzio_wrapper").toggleClass("toggled");
+});
+$("#menu-toggle-2").click(function(e) {
+   e.preventDefault();
+   $("#wellzio_wrapper").toggleClass("toggled-2");
+   $('#menu ul').hide();
+});
+
+function initMenu() {
+   $('#menu ul').hide();
+   $('#menu ul').children('.current').parent().show();
+   
+ 
+    $("#sidebar-wrapper").hover(function(){
+       $('.logoicon').css("display", "none");
+      $('.logoimg').css("display", "inline-block");
+      $('.nav-bottom').css("position", "fixed");
+    }, function(){
+    $('.logoicon').css("display", "inline-block");
+    $('.logoimg').css("display", "none");
+    $('.nav-bottom').css("position", "absolute");
+    $('.sidebar-nav .dropdown-menu').css("display", "none");
+    });
+
+   //$('#menu ul:first').show();
+   $('#menu li a').click(
+      function() {
+         var checkElement = $(this).next();
+         if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+            return false;
+         }
+         if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+            $('#menu ul:visible').slideUp('normal');
+            checkElement.slideDown('normal');
+            return false;
+         }
+      }
+   );
+}
+/*$(document).ready(function() {*/
+   initMenu();
+/*});*/
+
+   	});
+
+   </script>
+
+</body>
+
+</html>
